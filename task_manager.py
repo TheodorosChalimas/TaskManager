@@ -14,9 +14,9 @@ def blend_colors(color1, color2, ratio=0.25):
 
 
 class TodoApp:
-    # Remove "Completed" column from columns and widths
-    COLUMNS = ["#", "Task", "Priority", "Due", "Added", "Edit", "Delete"]
-    COL_WIDTHS = [5, 40, 10, 14, 18, 8, 8]
+    # Remove "Edit" and "Delete" columns from columns and widths
+    COLUMNS = ["#", "Task", "Priority", "Due", "Added"]
+    COL_WIDTHS = [5, 40, 10, 14, 18]
 
     # Define task priorities and themes
     PRIORITIES = ["Low", "Medium", "High"]
@@ -375,21 +375,6 @@ class TodoApp:
             # Added
             tk.Label(self.tasks_frame, text=timestamp, borderwidth=1, relief="solid",
                      width=self.col_widths[4], bg=bg, fg=fg, padx=4, pady=2).grid(row=idx + 1, column=4, sticky="nsew")
-
-            # Edit button (now in its own column)
-            edit_btn = tk.Button(
-                self.tasks_frame, text="Edit", command=lambda i=idx: self.edit_task(i),
-                width=self.col_widths[5], padx=2, pady=2, bg=theme["button_bg"], fg=theme["button_fg"]
-            )
-            edit_btn.grid(row=idx + 1, column=5, sticky="nsew")
-
-            # Delete button (now in its own column)
-            del_btn = tk.Button(
-                self.tasks_frame, text="Delete", fg="red",
-                command=lambda i=idx: self.confirm_delete(i),
-                width=self.col_widths[6], padx=2, pady=2, bg=theme["button_bg"]
-            )
-            del_btn.grid(row=idx + 1, column=6, sticky="nsew")
 
         # Make columns expand
         for col in range(len(self.columns)):
