@@ -1,6 +1,7 @@
 # To-Do List Application
 
-A modern, themeable, and animated To-Do List desktop app built with Python and Tkinter.
+A themeable, and animated To-Do List desktop app built with Python and Tkinter.
+Recomended use: Setup bash script to run with key binding
 
 ## Features
 
